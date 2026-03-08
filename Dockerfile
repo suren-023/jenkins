@@ -1,3 +1,11 @@
-FROM hshar/webapp
-ADD ./index.html /var/www/html
-CMD ["apache2ctl", "-D", "FOREGROUND"]
+FROM nginx:latest
+
+# Copy custom HTML files to Nginx web root
+COPY index.html /usr/share/nginx/html/index.html
+
+# Expose port 80
+EXPOSE 80
+
+# Start Nginx in foreground
+CMD ["nginx", "-g", "daemon off;"]
+
