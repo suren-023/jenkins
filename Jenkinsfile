@@ -1,6 +1,6 @@
 pipeline {
     agent none  // Assign per stage
-
+    // Test
     triggers {
         githubPush()  // Auto-trigger on GitHub push
     }
